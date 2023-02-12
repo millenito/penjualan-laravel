@@ -24,7 +24,10 @@ class ProductSeeder extends Seeder
                 'discount' => 10,
                 'dimension' => '13 cm x 10 cm',
                 'unit' => 'PCS',
-            ],
+            ]
+        );
+
+        DB::table('products')->insert(
             [
                 'product_code' => 'GVBBRU',
                 'product_name' => 'Giv Biru',
@@ -32,6 +35,9 @@ class ProductSeeder extends Seeder
                 'currency' => 'IDR',
                 'unit' => 'PCS',
             ],
+        );
+
+        DB::table('products')->insert(
             [
                 'product_code' => 'SKLINQUID',
                 'product_name' => 'SO Klin Liquid',

@@ -1,4 +1,4 @@
-# My Awesome Laravolt Application
+# Aplikasi Penjualan
 
 ## Server Requirements
 1. PHP 8.x
@@ -18,3 +18,7 @@
     1. bootstrap/cache
     1. storage
 1. Jalankan 'php artisan serve'
+
+## Demo Login
+Email: admin@mail.com
+Password: password
