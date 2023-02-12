@@ -3,6 +3,7 @@
 use App\Http\Controllers\Home;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ReportController;
 
 Route::redirect('/', 'auth/login');
 
@@ -20,6 +21,9 @@ Route::middleware(['auth', 'verified'])
             Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
             Route::post('submit-cart', [CartController::class, 'saveCart'])->name('cart.submit');
             Route::get('success', [CartController::class, 'successCart'])->name('cart.success');
+
+            Route::get('/report', [ReportController::class, 'index'])->name('report');
+            Route::post('print', [ReportController::class, 'print'])->name('report.print');
         }
     );
 

@@ -19,4 +19,8 @@ class transactionDetail extends Model
         'currency',
     ];
 
+    public function product()
+    {
+        return $this->belongsTo('App\Models\product', 'product_code', 'product_code');
+    }
 }

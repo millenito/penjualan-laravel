@@ -15,4 +15,14 @@ class transactionHeader extends Model
         'total',
     ];
 
+    public function details()
+    {
+        return $this->hasMany('App\Models\transactionDetail', 'document_number', 'document_number');
+
+    }
+
+    public function usernya()
+    {
+        return $this->belongsTo('App\Models\User', 'user', 'id');
+    }
 }
