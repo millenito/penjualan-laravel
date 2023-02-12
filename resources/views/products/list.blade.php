@@ -17,9 +17,13 @@
                     @endif
                     <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <input type="hidden" value="{{ $product->id }}" name="id">
+                        <input type="hidden" value="{{ $product->product_code }}" name="id">
                         <input type="hidden" value="{{ $product->product_name }}" name="name">
-                        <input type="hidden" value="{{ $product->price }}" name="price">
+                        @if ($product->discount || $product->discount > 0)
+                            <input type="hidden" value="{{ $product->price - ($product->price*$product->discount/100) }}" name="price">
+                        @else
+                            <input type="hidden" value="{{ $product->price }}" name="price">
+                        @endif
                         <input type="hidden" value="{{ $product->product_image }}"  name="image">
                         <input type="hidden" value="1" name="quantity">
                         <button class="btn btn-primary">Add To Cart</button>

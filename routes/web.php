@@ -18,6 +18,8 @@ Route::middleware(['auth', 'verified'])
             Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
             Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
             Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
+            Route::post('submit-cart', [CartController::class, 'saveCart'])->name('cart.submit');
+            Route::get('success', [CartController::class, 'successCart'])->name('cart.success');
         }
     );
 

@@ -17,9 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('document_code', 3);
             $table->string('document_number', 10)->unique();
-            $table->string('user', 10)->unique();
+            $table->string('user', 10);
             $table->float('total');
-            $table->foreign('user')->references('user_code')->on('users');
             $table->timestamps();
         });
     }

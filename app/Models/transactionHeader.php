@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class transactionHeader extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['document_code',
+        'document_number',
+        'user',
+        'total',
+    ];
+
 }
