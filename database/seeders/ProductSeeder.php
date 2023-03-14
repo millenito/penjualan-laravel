@@ -24,6 +24,7 @@ class ProductSeeder extends Seeder
                 'discount' => 10,
                 'dimension' => '13 cm x 10 cm',
                 'unit' => 'PCS',
+                'product_image' => 'https://static.bmdstatic.com/pk/product/large/5efece5d53c7f.jpg',
             ]
         );
 
@@ -34,6 +35,7 @@ class ProductSeeder extends Seeder
                 'price' => 11000,
                 'currency' => 'IDR',
                 'unit' => 'PCS',
+                'product_image' => 'https://cf.shopee.co.id/file/448727ba0063e060feba395844237ca3',
             ],
         );
 
@@ -44,6 +46,7 @@ class ProductSeeder extends Seeder
                 'price' => 18000,
                 'currency' => 'IDR',
                 'unit' => 'PCS',
+                'product_image' => 'https://www.mirotakampus.com/resources/assets/images/product_images/1658474027.soklin%20liq%20sakura%20780.jpg',
             ],
         );
     }

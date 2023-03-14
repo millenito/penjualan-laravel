@@ -23,13 +23,29 @@ class DatabaseSeeder extends Seeder
  *             'password' => '$2y$10$FiS003j4RoCts8ndVnAM6ewVleP/gCY8GJBQlBTtHU/AUhmixTOLa ',
  *         ]);
  *  */
-        DB::table('user')->insert(
+        $role = app(config('laravolt.epicentrum.models.role'))->whereHas('permissions', function ($permissions) {
+            $permissions->whereName('*');
+        })->first();
+
+        if (!$role) {
+            $role = app(config('laravolt.epicentrum.models.role'))->firstOrCreate(['name' => 'admin']);
+            $role->syncPermission(['*']);
+        }
+
+        $user = app(config('laravolt.epicentrum.models.user'))->updateOrCreate(
+            [
+                'email' => 'admin@mail.com',
+            ],
             [
                 'name' => 'admin',
-                'email' => 'admin@mail.com',
-                'password' => '$2y$10$FiS003j4RoCts8ndVnAM6ewVleP/gCY8GJBQlBTtHU/AUhmixTOLa ',
-            ],
+                'password' => bcrypt('password'),
+                'status' => 'ACTIVE',
+                'timezone'  => config('app.timezone'),
+            ]
         );
+
+        $user->markEmailAsVerified();
+        $user->assignRole($role);
 
         $this->call([
             ProductSeeder::class
